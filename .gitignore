@@ -1,0 +1,20 @@
+# Credentials and local execution state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+.vault-password*
+vault-password*
+*.retry
+.ansible/
+
+# Environment-specific configuration stays outside the public repository
+inventories/
+inventory*
+host_vars/
+group_vars/
+known_hosts*
+*.pub

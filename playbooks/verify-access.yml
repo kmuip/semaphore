@@ -1,0 +1,15 @@
+---
+- name: Verify SSH and privilege escalation
+  hosts: managed
+  gather_facts: false
+  tasks:
+    - name: Verify SSH and Python
+      ansible.builtin.ping:
+    - name: Verify root privilege escalation
+      become: true
+      ansible.builtin.command: /usr/bin/id -u
+      register: root_uid
+      changed_when: false
+    - name: Confirm root access
+      ansible.builtin.assert:
+        that: root_uid.stdout == '0'
